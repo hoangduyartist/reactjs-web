@@ -1,0 +1,16 @@
+[{
+        "tenMon": "Coffee",
+        "donGia": 15000,
+        "soLuong": 1
+    },
+    {
+        "tenMon": "Nuoc chanh",
+        "donGia": 25000,
+        "soLuong": 1
+    },
+    {
+        "tenMon": "Nuoc cam",
+        "donGia": 30000,
+        "soLuong": 1
+    }
+]
