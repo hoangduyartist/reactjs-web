@@ -26,8 +26,22 @@ class Start extends Component {
 
     //login fb gg    
 
-
+    test(){
+        let arr1 = [{id:1, name:'a'},{id:2, name:'b'}];
+        let arr2 = [];
+        arr1.map(val => {
+            arr2.push(Object.assign({},val));
+        })
+        // for (let i in arr1){
+        //     // let temp=Object.assign({},arr1[i]);
+           
+        // }
+        arr2[0].id='12345';
+        console.log(arr1);
+        console.log(arr2);
+    }
     render() {
+        this.test();
         // console.log(this.state.arrUser+" type: "+typeof(this.state.arrUser));
         // console.log(this.state.arrUser[0].id+" type: "+typeof(this.state.arrUser[0].id));
         return (

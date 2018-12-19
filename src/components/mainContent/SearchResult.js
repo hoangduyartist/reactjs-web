@@ -25,6 +25,7 @@ class SearchResult extends Component {
     }
 
     render() {
+        console.log(this.state.stores);
         return (
             <div className="jumbotron pb-lg-4">
 
@@ -37,6 +38,7 @@ class SearchResult extends Component {
                 <hr className="my-3" />
                 <div className="row">
                     {
+                        
                         this.state.stores.map((value, key) => {
 
                             if (value.name.match(this.searchText)) {
@@ -45,6 +47,7 @@ class SearchResult extends Component {
                             //     if (limit <= this.state.limitSeen) {
                                     // return <StoreCard currentUser={this.props.currentUser} getBrandId={(id) => this.getBrandIdToDel(id)} key={key} brands={this.props.brands} id={value.id} img={value.img} name={value.name} type={value.type} ></StoreCard>
                             //     }
+                                // console.log(value);
                                 return <StoreCard key={key} id={value.id} img={value.img} name={value.name} address={value.address}></StoreCard>
                             }
                             return [];

@@ -47,20 +47,39 @@ class StoreDetail extends Component {
         });
     }
     getDish(id){
-        // console.log(id);
-        let dish = {};
         
         this.state.showListProduct.map((val)=>{
             if(val.key===id) {
-                dish=val;
+                let dish = {};
+                dish.id=id;
+                dish.tenMon=val.tenMon;
+                dish.donGia=val.donGia;
+                dish.soLuong=1;
+                dish.thanhTien=val.donGia;
+                // dish=Object.assign({},val);
                 this.total=this.total+val.donGia;
+                this.list.push(dish);
+    
             }
         })
-        this.list.push(dish);
-        // console.log(dish);
-        
+  
         this.setState({listOrdered:this.list});
 
+    }
+    updatePrice(id,num){
+        // console.log(id);
+        // console.log(num);
+        this.list.forEach(val => {
+            if(val.id===id){
+                val.soLuong=num;
+                val.thanhTien=num*val.donGia;
+            }
+        });
+        console.log(this.list);
+        let temp = 0; 
+        this.list.map(val =>{temp+=val.thanhTien})
+        this.setState({listOrdered:this.list});
+        this.total = temp;
     }
     readStores() {
         axios.get('http://5c09f56dea3172001389ce49.mockapi.io/my-location-API/stores')
@@ -242,6 +261,7 @@ class StoreDetail extends Component {
                                     <thead className="table-success table-bordered">
                                         <tr>
                                             <th>Tên</th>
+                                            <th>Sl</th>
                                             <th>Thành tiền</th>
                                         </tr>
 
@@ -249,15 +269,15 @@ class StoreDetail extends Component {
                                     <tbody className="table-bordered">
                                         {
                                             this.state.listOrdered.map((val,key)=>{
-                                                return <EachOrdered key={key} name={val.tenMon} total={val.donGia} ></EachOrdered>
+                                                return <EachOrdered key={key} id={val.id} name={val.tenMon} price={val.donGia} updatePrice={(id,num)=>this.updatePrice(id,num)}></EachOrdered>
                                             })
                                         }
                                         
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Tổng</th>
-                                            <th className="table-bordered text-right">{this.total}<span className="ml-1">đ</span></th>
+                                            <th colSpan="2">Tổng</th>
+                                            <th className="table-bordered text-right" >{this.total}<span className="ml-1">đ</span></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -265,7 +285,7 @@ class StoreDetail extends Component {
                                 {/* <p ><span className="title float-left">Tổng: </span><span className="float-right">0đ</span></p> */}
                                 
                                 <button className="btn btn-success btn-block">Đặt món</button>
-                                <button className="btn btn-outline-warning btn-block" onClick={()=>{this.setState({listOrdered:[]});this.total=0;}}>Reset</button>
+                                <button className="btn btn-outline-warning btn-block" onClick={()=>{this.setState({listOrdered:[]});this.total=0;this.list=[]}}>Reset</button>
                             </div>
 
                             {this.renderOptions()}
