@@ -27,6 +27,7 @@ class SearchResult extends Component {
     render() {
         console.log(this.state.stores);
         return (
+            <div className="container">
             <div className="jumbotron pb-lg-4">
 
                 <div className="row px-lg-2">
@@ -56,6 +57,7 @@ class SearchResult extends Component {
                 </div>
                 <hr className="my-3" />
 
+            </div>
             </div>
         );
     }
