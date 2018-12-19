@@ -39,7 +39,7 @@ class TopMenu extends Component {
                     <div className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
                         <a className="dropdown-item" href="#">Action</a>
                         <a className="dropdown-item" href="#">Another action</a>
-                        <a className="dropdown-item" href="/authentication" id="login"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                        <a className="dropdown-item" href="/authentication" id="login"><i className="fas fa-sign-in-alt"></i> Log in</a>
                     </div>
                 </span>    
                 <i className="far fa-bell user-ico mx-1" />
