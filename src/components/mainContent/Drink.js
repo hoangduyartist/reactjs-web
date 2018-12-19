@@ -97,7 +97,7 @@ class Drink extends Component {
 
                 <div className="row px-lg-2">
                     <div className="col-lg-8">
-                        <h4 className="display-4 text-left">     Nước uống</h4>
+                        <h4 className="display-4 text-left"><i className="fas fa-coffee"></i> Nước uống</h4>
                         <p className="lead text-left mb-0">Come and enjoy !</p>
                     </div>
                     {/* <div className="col-lg-4 d-flex flex-row-reverse"><div className="d-flex flex-column-reverse"><i id="btn-add" className="fas fa-plus-circle"></i></div></div> */}
